@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{super()}}
+
+
+<form class="form-signin" action="/login" method="POST">
+    <!-- This is the logo image for the login page -->
+    <img class="mb-4" src="{{ url_for('static', filename = 'images/sign.avif')}}" alt="" width="100" height="100">
+    <!-- This is the title on the login page -->
+    <h2 class="h3 mb-3 font-weight-normal text-center">Sign In Required</h2>
+    <!-- Sign in form -->
+    <input class="form-control form-control-md" type="text" name="username" placeholder="Username" required>
+    <input class="form-control form-control-md" type="password" name="password" placeholder="Password" required>
+    <button type="submit" class="btn btn-lg btn-success" btn-block">Submit</button>
+    <!-- Holder -->
+    <p class="mt-5 mb-3 text-muted text-center">&copy; post</p>
+</form>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block content %} -
+
+
+<div class="card-body text-dark">
+    <p class="card-text">
+    <h2>quote:quote of the day <br>{{data.quote}}</h2>
+    </p>
+</div>
+<div class="container-fluid text-center">
+    <h1>Enter Your post Here</h1>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 text-center brief">
+            <img class="mb-4" id="homelogo" src="{{ url_for('static', filename = 'images/post.avif')}}" alt=""
+                width="200" height="200">
+            <p>
+                If you had just 60 seconds to make a post that would make an outstanding lasting impression what would
+                you say??
+                Well lets see what you got by dropping your best post here!!
+            </p>
+        </div>
+       
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
+
+<div class="row" id="pallete">
+    {% for post in postes %}
+    <div class="card border-dark mb-3" style="max-width:45%">
+        <div class="card-header">
+            <h3>{{post.title}}</h3>
+        </div>
+        <div class="card-body text-dark">
+            <p class="card-text">
+                {{post.category}}
+            </p>
+            <p class="card-text">
+                {{post.description}}
+            </p>
+            <p class="card-text">
+                {{post.author_id.username}}
+            </p>
+        </div>
+        <div class="card-footer">
+            <p class="card-text">
+                {{post.author}}
+            </p>
+            <a href="/post/details/{{post.id}}">
+                <button type="button" class="btn btn-outline-secondary">Add Comment</button>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
